@@ -8,24 +8,29 @@ int main () {
     int guess;
     int option;
     // int num;
-    cout << "1-easy\n";
+    
+
+    srand(time(0));
+
+   
+    char y;
+    // int attemp = 0;
+
+    do {
+        cout << "1-easy\n";
     cout << "2-Medium\n";
     cout << "3-Hard\n";
 
     cin >> option;
-
-    srand(time(0));
-
-    int count = 0;
+         int count = 1;
     int loose = 0;
     int win = 0;
-    
-while (count <= 4) {
+        while (count <= 4)  {
             switch (option) {
         case 1: {
             cout << "Guess a Number From 1-50\n";
             cin >> guess;
-    
+            count++;
         int num = rand() % 50 + 1;
 
         if (guess == num) {
@@ -43,7 +48,7 @@ while (count <= 4) {
         case 2: {
             cout << "Guess a Number From 1-100\n";
             cin >> guess;
-            
+            count++;
         int num = rand() % 100 + 1;
 
         if (guess == num) {
@@ -61,7 +66,7 @@ while (count <= 4) {
         case 3: {
             cout << "Guess a Number From 1-500\n";
             cin >> guess;
-    
+            count++;
         int num = rand() % 500 + 1;
 
         if (guess == num) {
@@ -75,22 +80,53 @@ while (count <= 4) {
         loose++;
     }
     break;
-        }
+     
+        } 
     
     default:
     cout << "Please Enter a Valid Option\n";
-    }
-        
-    count++;
+    break;
+
+
+   
+             }
+            
+ if (win == 3){
+            break;
+        }
     
-    } if (win >= 2) {
+    }  
+        
+   
+   
+
+    cout << "====================\n";
+    cout << "Attemp" << count << "/4\n";
+    cout << "====================\n";
+    
+    
+    if ( win >= 2) {
         cout << "Your Win\n";
         cout << win << " point\n";
-    } else {
+    } 
+    else {
         cout << "Your Lose\n";
         cout << loose << " point\n";
     }
+
+ 
     cout << "Number of attempts used: " << count << endl;
+
+     count = 1;
+    win = 0;
+    loose = 0;
+    cout << "Do You Want To Play Again? (y/n)\n";
+    cin >> y;
+    
+    
+    } while (y == 'y') ;
+
+    
   
     return 0;
 }
