@@ -7,31 +7,32 @@ int main () {
     cout << "\n ========== Gessing Game ========== \n";
     int guess;
     int option;
-    // int num;
     
 
     srand(time(0));
 
-   
     char y;
-    // int attemp = 0;
 
     do {
-        cout << "1-easy\n";
+    cout << "1-easy\n";
     cout << "2-Medium\n";
     cout << "3-Hard\n";
 
     cin >> option;
-         int count = 1;
+
+    int count = 1;
     int loose = 0;
     int win = 0;
+
         while (count <= 4)  {
             switch (option) {
+                // Easy mode
         case 1: {
+            int num = rand() % 50 + 1;
             cout << "Guess a Number From 1-50\n";
             cin >> guess;
             count++;
-        int num = rand() % 50 + 1;
+       
 
         if (guess == num) {
         cout << "Correct is: " << num << endl;
@@ -45,12 +46,13 @@ int main () {
     }
     break;
         }
+        // Meduim Mode
         case 2: {
+            int num = rand() % 100 + 1;
             cout << "Guess a Number From 1-100\n";
             cin >> guess;
             count++;
-        int num = rand() % 100 + 1;
-
+        
         if (guess == num) {
         cout << "Correct is: " << num << endl;
         win++;
@@ -63,12 +65,13 @@ int main () {
     }
     break;
         }
+        // Hard Mode
         case 3: {
+            int num = rand() % 500 + 1;
             cout << "Guess a Number From 1-500\n";
             cin >> guess;
             count++;
-        int num = rand() % 500 + 1;
-
+        
         if (guess == num) {
         cout << "Correct is: " << num << endl;
         win++;
@@ -80,25 +83,20 @@ int main () {
         loose++;
     }
     break;
-     
+    
         } 
     
     default:
     cout << "Please Enter a Valid Option\n";
     break;
 
-
-   
-             }
+            }
             
- if (win == 3){
+    if (win == 3){
             break;
         }
     
     }  
-        
-   
-   
 
     cout << "====================\n";
     cout << "Attemp" << count << "/4\n";
@@ -114,20 +112,18 @@ int main () {
         cout << loose << " point\n";
     }
 
- 
     cout << "Number of attempts used: " << count << endl;
 
-     count = 1;
-    win = 0;
-    loose = 0;
+    // Rest The Game
+    // count = 1;
+    // win = 0;
+    // loose = 0;
+
     cout << "Do You Want To Play Again? (y/n)\n";
     cin >> y;
     
-    
     } while (y == 'y') ;
 
-    
-  
     return 0;
 }
 
