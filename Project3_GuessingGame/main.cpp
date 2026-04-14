@@ -32,8 +32,7 @@ int main () {
             cout << "Guess a Number From 1-50\n";
             cin >> guess;
             count++;
-       
-
+    
         if (guess == num) {
         cout << "Correct is: " << num << endl;
         win++;
@@ -113,11 +112,6 @@ int main () {
     }
 
     cout << "Number of attempts used: " << count << endl;
-
-    // Rest The Game
-    // count = 1;
-    // win = 0;
-    // loose = 0;
 
     cout << "Do You Want To Play Again? (y/n)\n";
     cin >> y;
