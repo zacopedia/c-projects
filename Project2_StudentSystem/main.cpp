@@ -9,13 +9,17 @@ int main () {
     
     string students [100];
     double scores[100];
-    int menu;
+    int menu = 0;
     int countStudent = 0;
+    
+    
+   
+    string search;
 
     // cin >> students[100];
     // cin >> scores;
     
-    while (true) {
+    while (menu != 6) {
     cout << "\n=====Menu====\n";
     cout << "1- Add student\n";
     cout << "2- Show all students\n";
@@ -37,21 +41,53 @@ int main () {
         case 2:
         for (int i = 0; i < countStudent; i++) {
             cout << students[i] <<  "Score:" << scores[i] << endl;
-            cout << "=== END ===\n";
         }
         break;
-        // case 3:
-
-
+        case 3:
+        if (countStudent > 0) {
+            double hightstScore = scores[0];
+        for (int i = 1; i < countStudent; i++) {
+            if (scores[i] > hightstScore ) {
+                hightstScore = scores[i];
+            }
+        }
+        cout << "The Highest Score Is: " << hightstScore << endl;
+        } else {
+            cout << "No Student\n";
+        }
+        
+        break;
+        case 4:
+        if (countStudent > 0) {
+            double sumScores = 0;
+        for (int i = 0; i < countStudent; i++) {
+            sumScores += scores[i];
+        }
+        double average = sumScores / countStudent;
+        cout << "The Average Score Is: " << average << endl;
+        } else {
+            cout << "No Student\n";
+        }
+        
+        break;
+        case 5:
+        cin >> search;
+        bool found = false;
+        for (int i = 0; i < countStudent; i++) {
+            if (search == students[i]) {
+                cout << "Found " << students[i] << endl;
+                found = true;
+                break;
+            } 
+        }
+        if (!found) cout << "Not Found\n";
+        break;
+        case 6:
+        cout << "Exiting....\n";
+        break;
     }
 
-
-
-
     } 
-
-
-
 
 
 
